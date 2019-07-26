@@ -1,7 +1,7 @@
 package com.jvmbytes.commons.structure;
 
 
-import com.jvmbytes.util.LazyGet;
+import com.jvmbytes.commons.utils.LazyGet;
 
 import java.lang.annotation.Inherited;
 import java.util.HashSet;

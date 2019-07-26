@@ -1,6 +1,6 @@
-package com.jvmbytes.util;
+package com.jvmbytes.commons.utils;
 
-import com.jvmbytes.util.exception.UnCaughtException;
+import com.jvmbytes.commons.utils.exception.UnCaughtException;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;

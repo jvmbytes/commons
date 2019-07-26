@@ -1,4 +1,4 @@
-package com.jvmbytes.util;
+package com.jvmbytes.commons.utils;
 
 import org.apache.commons.lang3.ArrayUtils;
 

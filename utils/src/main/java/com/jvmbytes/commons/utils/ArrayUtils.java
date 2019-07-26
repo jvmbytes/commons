@@ -1,4 +1,4 @@
-package com.jvmbytes.util;
+package com.jvmbytes.commons.utils;
 
 /**
  * 数组操作工具类

@@ -1,4 +1,4 @@
-package com.jvmbytes.util.exception;
+package com.jvmbytes.commons.utils.exception;
 
 /**
  * 未捕获异常

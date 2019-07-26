@@ -1,4 +1,4 @@
-package com.jvmbytes.util.collection;
+package com.jvmbytes.commons.utils.collection;
 
 /**
  * 堆栈

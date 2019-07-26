@@ -1,4 +1,4 @@
-package com.jvmbytes.util;
+package com.jvmbytes.commons.utils;
 
 import java.util.Collection;
 

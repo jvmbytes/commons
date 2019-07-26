@@ -1,4 +1,4 @@
-package com.jvmbytes.util.collection;
+package com.jvmbytes.commons.utils.collection;
 
 import java.util.NoSuchElementException;
 

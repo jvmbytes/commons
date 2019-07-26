@@ -1,9 +1,9 @@
 package com.jvmbytes.commons.structure;
 
-import com.jvmbytes.util.BitUtils;
-import com.jvmbytes.util.LazyGet;
-import com.jvmbytes.util.collection.LRUCache;
-import com.jvmbytes.util.collection.Pair;
+import com.jvmbytes.commons.utils.BitUtils;
+import com.jvmbytes.commons.utils.LazyGet;
+import com.jvmbytes.commons.utils.collection.LRUCache;
+import com.jvmbytes.commons.utils.collection.Pair;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.objectweb.asm.AnnotationVisitor;
@@ -24,8 +24,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import static com.jvmbytes.util.ClassUtils.toInternalClassName;
-import static com.jvmbytes.util.ClassUtils.toJavaClassName;
+import static com.jvmbytes.commons.utils.ClassUtils.toInternalClassName;
+import static com.jvmbytes.commons.utils.ClassUtils.toJavaClassName;
 import static org.objectweb.asm.ClassReader.*;
 import static org.objectweb.asm.Opcodes.*;
 
