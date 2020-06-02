@@ -3,6 +3,7 @@ package com.jvmbytes.commons.utils.exception;
 /**
  * 未捕获异常
  * 用来封装不希望抛出的异常
+ *
  * @author luanjia
  */
 public class UnCaughtException extends RuntimeException {

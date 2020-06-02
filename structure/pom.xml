@@ -5,17 +5,42 @@
     <parent>
         <artifactId>commons</artifactId>
         <groupId>com.jvmbytes.commons</groupId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.0.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>structure</artifactId>
+    <name>jvmbytes commons structure</name>
+    <description>jvmbytes common class structure</description>
+    <url>https://github.com/jvmbytes/commons/structure</url>
+
+    <licenses>
+        <license>
+            <name>GNU GENERAL PUBLIC LICENSE</name>
+            <url>https://www.gnu.org/licenses/</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>wongoo</name>
+            <email>wongoo@apache.org</email>
+            <organization>jvmbytes</organization>
+            <organizationUrl>http://jvmbytes.com</organizationUrl>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/jvmbytes/commons.git</connection>
+        <developerConnection>scm:git:ssh://github.com:jvmbytes/commons.git</developerConnection>
+        <url>http://github.com/jvmbytes/commons/tree/master</url>
+    </scm>
 
     <dependencies>
         <dependency>
             <groupId>com.jvmbytes.commons</groupId>
             <artifactId>utils</artifactId>
-            <version>${jvmbytes.commons.version}</version>
+            <version>1.0.0</version>
         </dependency>
         <dependency>
             <groupId>org.ow2.asm</groupId>
