@@ -1,7 +1,5 @@
 package com.jvmbytes.commons.utils;
 
-import org.apache.commons.lang3.ArrayUtils;
-
 /**
  * 位操作工具类
  *
@@ -17,7 +15,7 @@ public class BitUtils {
      * @return true:在掩码范围内;false:不在掩码范围内
      */
     public static boolean isIn(int target, int... maskArray) {
-        if (ArrayUtils.isEmpty(maskArray)) {
+        if (maskArray == null || maskArray.length == 0) {
             return false;
         }
         for (int mask : maskArray) {

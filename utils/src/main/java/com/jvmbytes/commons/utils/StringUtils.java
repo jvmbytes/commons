@@ -1,5 +1,8 @@
 package com.jvmbytes.commons.utils;
 
+import java.util.Collection;
+import java.util.Iterator;
+
 import static java.util.regex.Pattern.quote;
 
 /**
@@ -166,5 +169,63 @@ public class StringUtils {
             regexQuoteArray[index] = quote(stringArray[index]);
         }
         return regexQuoteArray;
+    }
+
+    /**
+     * 字符串比较
+     *
+     * @param cs1 字符串1
+     * @param cs2 字符串2
+     * @return 是否一样
+     */
+    public static boolean equals(final String cs1, final String cs2) {
+        if (cs1 == cs2) {
+            return true;
+        }
+        if (cs1 == null || cs2 == null) {
+            return false;
+        }
+        if (cs1.length() != cs2.length()) {
+            return false;
+        }
+        return cs1.equals(cs2);
+    }
+
+    public static final String EMPTY = "";
+
+    public static String join(final Collection<String> collection, final String separator) {
+        if (collection == null) {
+            return null;
+        }
+        return join(collection.iterator(), separator);
+    }
+
+    public static String join(final Iterator<String> iterator, final String separator) {
+        if (iterator == null) {
+            return null;
+        }
+        if (!iterator.hasNext()) {
+            return EMPTY;
+        }
+        final String first = iterator.next();
+        if (!iterator.hasNext()) {
+            return first;
+        }
+
+        final StringBuilder buf = new StringBuilder(256);
+        if (first != null) {
+            buf.append(first);
+        }
+
+        while (iterator.hasNext()) {
+            if (separator != null) {
+                buf.append(separator);
+            }
+            final Object obj = iterator.next();
+            if (obj != null) {
+                buf.append(obj);
+            }
+        }
+        return buf.toString();
     }
 }

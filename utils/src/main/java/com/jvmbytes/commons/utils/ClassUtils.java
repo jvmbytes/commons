@@ -1,6 +1,5 @@
 package com.jvmbytes.commons.utils;
 
-import org.apache.commons.lang3.StringUtils;
 import org.objectweb.asm.Type;
 
 import java.lang.instrument.Instrumentation;
@@ -97,7 +96,7 @@ public class ClassUtils {
      * @return internal's classname
      */
     public static String toInternalClassName(String javaClassName) {
-        return StringUtils.replace(javaClassName, ".", "/");
+        return javaClassName.replace(".", "/");
     }
 
     /**
@@ -108,7 +107,7 @@ public class ClassUtils {
      * @return java's classname
      */
     public static String toJavaClassName(String internalClassName) {
-        return StringUtils.replace(internalClassName, "/", ".");
+        return internalClassName.replace("/", ".");
     }
 
     public static String[] toJavaClassNameArray(String[] internalClassNameArray) {

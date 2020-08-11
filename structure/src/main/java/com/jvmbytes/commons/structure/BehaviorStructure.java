@@ -8,7 +8,8 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-import static org.apache.commons.lang3.StringUtils.join;
+import static com.jvmbytes.commons.utils.StringUtils.join;
+
 
 /**
  * 行为结构

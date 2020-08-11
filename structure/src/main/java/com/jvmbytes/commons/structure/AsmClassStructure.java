@@ -1,11 +1,11 @@
 package com.jvmbytes.commons.structure;
 
 import com.jvmbytes.commons.utils.BitUtils;
+import com.jvmbytes.commons.utils.IOUtils;
 import com.jvmbytes.commons.utils.LazyGet;
+import com.jvmbytes.commons.utils.StringUtils;
 import com.jvmbytes.commons.utils.collection.LRUCache;
 import com.jvmbytes.commons.utils.collection.Pair;
-import org.apache.commons.io.IOUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.objectweb.asm.AnnotationVisitor;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassVisitor;
@@ -322,21 +322,23 @@ public class AsmClassStructure extends FamilyClassStructure {
         final Pair pair = new Pair(loader, javaClassName);
         if (classStructureCache.containsKey(pair)) {
             return classStructureCache.get(pair);
-        } else {
+        }
 
-            final InputStream is = getResourceAsStream(internalClassNameToResourceName(toInternalClassName(javaClassName)));
-            if (null != is) {
+        final InputStream is = getResourceAsStream(internalClassNameToResourceName(toInternalClassName(javaClassName)));
+        if (null != is) {
+            try {
+                final ClassStructure classStructure = new AsmClassStructure(is, loader);
+                classStructureCache.put(pair, classStructure);
+                return classStructure;
+            } catch (Throwable cause) {
+                // ignore
+                logger.warn("new instance class structure by using ASM failed, will return null. class={};loader={};",
+                        javaClassName, loader, cause);
+                classStructureCache.put(pair, null);
+            } finally {
                 try {
-                    final ClassStructure classStructure = new AsmClassStructure(is, loader);
-                    classStructureCache.put(pair, classStructure);
-                    return classStructure;
-                } catch (Throwable cause) {
-                    // ignore
-                    logger.warn("new instance class structure by using ASM failed, will return null. class={};loader={};",
-                            javaClassName, loader, cause);
-                    classStructureCache.put(pair, null);
-                } finally {
-                    IOUtils.closeQuietly(is);
+                    is.close();
+                } catch (final IOException ignored) {
                 }
             }
         }

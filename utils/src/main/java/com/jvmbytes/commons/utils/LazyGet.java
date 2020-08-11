@@ -17,7 +17,7 @@ public abstract class LazyGet<T> {
      * initial object
      *
      * @return initial value
-     * @throws Throwable
+     * @throws Throwable 异常
      */
     abstract protected T initialValue() throws Throwable;
 
