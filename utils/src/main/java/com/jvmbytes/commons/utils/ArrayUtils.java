@@ -43,4 +43,19 @@ public class ArrayUtils {
                 : 0;
     }
 
+    /**
+     * 数组是否包含特定对象
+     *
+     * @param array  数组
+     * @param target 对象
+     * @return 包含与否
+     */
+    public static boolean contains(Object[] array, Object target) {
+        for (Object o : array) {
+            if (o.equals(target)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

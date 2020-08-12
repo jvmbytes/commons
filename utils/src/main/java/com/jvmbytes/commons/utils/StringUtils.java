@@ -193,23 +193,37 @@ public class StringUtils {
 
     public static final String EMPTY = "";
 
-    public static String join(final Collection<String> collection, final String separator) {
+    /**
+     * join collection
+     *
+     * @param collection 列表
+     * @param separator  分隔
+     * @return
+     */
+    public static String join(final Collection<?> collection, final String separator) {
         if (collection == null) {
             return null;
         }
         return join(collection.iterator(), separator);
     }
 
-    public static String join(final Iterator<String> iterator, final String separator) {
+    /**
+     * join iterator
+     *
+     * @param iterator  列表
+     * @param separator 分隔
+     * @return
+     */
+    public static String join(final Iterator<?> iterator, final String separator) {
         if (iterator == null) {
             return null;
         }
         if (!iterator.hasNext()) {
             return EMPTY;
         }
-        final String first = iterator.next();
+        final Object first = iterator.next();
         if (!iterator.hasNext()) {
-            return first;
+            return first == null ? EMPTY : first.toString();
         }
 
         final StringBuilder buf = new StringBuilder(256);
@@ -224,6 +238,40 @@ public class StringUtils {
             final Object obj = iterator.next();
             if (obj != null) {
                 buf.append(obj);
+            }
+        }
+        return buf.toString();
+    }
+
+    /**
+     * join array
+     *
+     * @param objects   数组
+     * @param separator 分隔
+     * @return
+     */
+    public static String join(final Object[] objects, final String separator) {
+        if (objects == null) {
+            return null;
+        }
+        if (objects.length == 0) {
+            return EMPTY;
+        }
+        if (objects.length == 1) {
+            return objects[0] == null ? EMPTY : objects[0].toString();
+        }
+
+        final StringBuilder buf = new StringBuilder(256);
+        if (objects[0] != null) {
+            buf.append(objects[0]);
+        }
+
+        for (int i = 1; i < objects.length; i++) {
+            if (separator != null) {
+                buf.append(separator);
+            }
+            if (objects[i] != null) {
+                buf.append(objects[i]);
             }
         }
         return buf.toString();

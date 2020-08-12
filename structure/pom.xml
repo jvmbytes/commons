@@ -5,7 +5,7 @@
     <parent>
         <artifactId>commons</artifactId>
         <groupId>com.jvmbytes.commons</groupId>
-        <version>1.1.0</version>
+        <version>1.1.1</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -40,7 +40,7 @@
         <dependency>
             <groupId>com.jvmbytes.commons</groupId>
             <artifactId>utils</artifactId>
-            <version>1.1.0</version>
+            <version>1.1.1</version>
         </dependency>
         <dependency>
             <groupId>org.ow2.asm</groupId>

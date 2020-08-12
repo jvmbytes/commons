@@ -1,6 +1,8 @@
 package com.jvmbytes.commons.utils;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -19,5 +21,9 @@ public class IOUtils {
             output.write(buffer, 0, n);
         }
         return output.toByteArray();
+    }
+
+    public static void writeByteArrayToFile(final File file, final byte[] data) throws IOException {
+        new FileOutputStream(file, false).write(data, 0, (int) file.length());
     }
 }
